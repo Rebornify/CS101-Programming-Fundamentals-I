@@ -29,4 +29,11 @@ int main(void) {
     }
     printf("\n");
 
+    for (int i = n; i > 0; i--) {
+        for (int j = 0; j < i - 1; j++) {
+            printf(" ");
+        }
+        printf("%c\n", 'A' + (i - 1));
+    }
+    printf("\n");
 }
