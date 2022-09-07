@@ -5,13 +5,13 @@ int main(void) {
     printf("Enter integer:");
     scanf("%d", &n);
 
-    int n_modified = n;
+    int copy_of_n = n;
 
     int reversed_n = 0;
-    while (n_modified > 0) {
+    while (copy_of_n > 0) {
         reversed_n *= 10;
-        reversed_n += n % 10;
-        n_modified /= 10;
+        reversed_n += copy_of_n % 10;
+        copy_of_n /= 10;
     }
     
     if (n == reversed_n) {
