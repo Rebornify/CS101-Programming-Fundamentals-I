@@ -9,9 +9,8 @@ int main(void) {
         printf("Enter letter:");
         scanf(" %c", &letter);
 
-        if (letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E'
-        || letter == 'i' || letter == 'I'|| letter == 'o' || letter == 'O'
-        || letter == 'u' || letter == 'U') {
+        if (letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E' || letter == 'i'
+        || letter == 'I'|| letter == 'o' || letter == 'O' || letter == 'u' || letter == 'U') {
             printf("vowel\n");
         }
         else if ((letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z')) {
