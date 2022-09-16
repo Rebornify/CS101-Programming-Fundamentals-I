@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+int get_largest(int arr[], int length) {
+    int largest = arr[0];
+    for (int i = 0; i < length - 1; i++) {
+        if (largest < arr[i + 1]) {
+            largest = arr[i + 1];
+        }
+    }
+    return largest;
+}
 
 int main(void) {
     {

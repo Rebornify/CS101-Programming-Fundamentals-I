@@ -1,6 +1,13 @@
 #include <stdio.h>
 
-
+void pick_digit(n) {
+    int digit = n % 10;
+    n /= 10;
+    if (n != 0) {
+        pick_digit(n);
+    }
+    printf("%d\n", digit);
+}
 
 int main(void) {
     {

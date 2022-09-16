@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+long unsigned int factorial(n) {
+    if (n >= 1) {
+        return n * factorial(n - 1);
+    } else {
+        return 1;
+    }
+}
 
 int main(void) {
     {

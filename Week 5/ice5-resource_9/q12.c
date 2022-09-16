@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+bool are_all_prices_higher_than(int values[], int length, int min_value) {
+    for (int i = 0; i < length; i++) {
+        if (values[i] <= min_value) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(void) {
     {
