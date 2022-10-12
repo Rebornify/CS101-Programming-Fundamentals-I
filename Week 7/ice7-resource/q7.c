@@ -1,5 +1,17 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+
+int count_num_vowels(char sentence[]) {
+    int count = 0;
+    for (int i = 0; i < strlen(sentence); i++) {
+        char temp = tolower(sentence[i]);
+        if (temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
+            count++;
+        }
+    }
+    return count;
+}
 
 int main(void) {
     {

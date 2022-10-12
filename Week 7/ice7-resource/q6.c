@@ -3,14 +3,31 @@
 #include <stdio.h>
 #include <string.h>
 
-bool is_palindrome(char string[]) {
+bool is_palindrome(char str[]) {
+    int j = strlen(str) - 1;
+    for (int i = 0; i < strlen(str); i++) {
+        if (!isalpha(str[i])) {
+            continue;
+        }
 
+        if (!isalpha(str[j])) {
+            i--;
+            j--;
+            continue;
+        }
+
+        if (tolower(str[i]) != tolower(str[j])) {
+            return false;
+        }
+        j--;
+    }
+    return true;
 }
 int main(void) {
     {
         printf("Test 1\n");
-        char string[] = "madam";
-        bool result = is_palindrome(string);
+        char str[] = "madam";
+        bool result = is_palindrome(str);
         printf("Expected:True\n");
         printf("Actual  :%s\n", result ? "True" : "False");
         printf("\n");
@@ -18,8 +35,8 @@ int main(void) {
 
     {
         printf("Test 2\n");
-        char string[] = "No 'x' in Nixon";
-        bool result = is_palindrome(string);
+        char str[] = "No 'x' in Nixon";
+        bool result = is_palindrome(str);
         printf("Expected:True\n");
         printf("Actual  :%s\n", result ? "True" : "False");
         printf("\n");
@@ -27,8 +44,8 @@ int main(void) {
 
     {
         printf("Test 3\n");
-        char string[] = "bad, chocolate dab";
-        bool result = is_palindrome(string);
+        char str[] = "bad, chocolate dab";
+        bool result = is_palindrome(str);
         printf("Expected:False\n");
         printf("Actual  :%s\n", result ? "True" : "False");
         printf("\n");

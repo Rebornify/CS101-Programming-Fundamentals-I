@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
+void reverse(char word[]) {
+    int len = strlen(word);
 
+    for (int i = 0; i < len / 2; i++) {
+        char temp = word[i];
+        word[i] = word[len - 1 - i];
+        word[len - 1 - i] = temp;
+    }
+}
 int main(void) {
     {
         printf("Test 1\n");

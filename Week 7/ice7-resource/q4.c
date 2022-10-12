@@ -9,8 +9,8 @@ void print_array(char string[]) {
 }
 
 void exchange_pairs(char s[]) {
-    int length = strlen(s);
-    for (int i  = 0; i < length - 1; i += 2) {
+    int len = strlen(s);
+    for (int i  = 0; i < len - 1; i += 2) {
         char temp = s[i];
         s[i] = s[i + 1];
         s[i + 1] = temp;
