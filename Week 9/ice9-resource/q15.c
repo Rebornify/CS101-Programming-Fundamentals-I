@@ -1,7 +1,34 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
+bool verify(char *card) {
+    if (strlen(card) != 16) {
+        return false;
+    }
 
+    bool is_even = true;
+    int sum = 0;
+
+    while (*card != '\0') {
+        if (is_even) {
+            int temp = (*card - '0') * 2;
+            if (temp > 9) {
+                temp -= 9;
+            }
+            sum += temp;
+        } else {
+            sum += *card - '0';
+        }
+        is_even = !is_even;
+        card++;
+    }
+
+    if (sum % 10 == 0) {
+        return true;
+    }
+    return false;
+}
 
 int main(void) {
     {

@@ -1,10 +1,18 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
-
 bool is_sorted(int arr[], int n) {
-      
+   bool is_decreasing = true;
+   bool is_increasing = true;
+
+   for (int i = 0; i < n - 1; i++) {
+      if (arr[i] < arr[i + 1]) {
+         is_decreasing = false;
+      } else if (arr[i] > arr[i + 1]) {
+         is_increasing = false;
+      }
+   } 
+   return (is_decreasing || is_increasing);
 }
 
 int main(void) {

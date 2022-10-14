@@ -1,5 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
+int remove_consecutive_duplicates(char *str) {
+    char *temp = str;
+    while (*temp != '\0') {
+        while (*temp == *(temp + 1)) {
+            int i = 0;
+            while (*(temp + i) != '\0') {
+                *(temp + i) = *(temp + i + 1);
+                
+                i++;
+            }
+        }
+        temp++;
+    }
+    return strlen(str);
+}
 
 int main(void) {
     {

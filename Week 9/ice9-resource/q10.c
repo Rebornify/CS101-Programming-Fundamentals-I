@@ -7,6 +7,7 @@ void run_length_encode(char *input, char *output) {
         int r_len = 1;
         while (*(input + 1) != '\0' && *input == *(input + 1)) {
             r_len++;
+            
             input++;
         }
         

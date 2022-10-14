@@ -1,5 +1,20 @@
 #include <stdio.h>
 
+void merge(char *content1, char *content2, char *combined) {
+    while (*content1 != '\0' && *content2 != '\0') {
+        *combined++ = *content1++;
+        *combined++ = *content2++;
+    }
+
+    while (*content1 != '\0') {
+        *combined++ = *content1++;
+    }
+
+    while (*content2 != '\0') {
+        *combined++ = *content2++;
+    }
+    *combined = '\0';
+}
 
 int main(void) {
     {

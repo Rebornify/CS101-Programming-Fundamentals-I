@@ -1,6 +1,25 @@
 #include <stdio.h>
 
+void swap(int *p1, int *p2) {
+    int temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+}
 
+void selection_sort(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        int min_i = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_i]) {
+                min_i = j;
+            }
+
+            if (min_i != i) {
+                swap(&arr[min_i], &arr[i]);
+            }
+        }
+    }
+}
 
 int main(void) {
     int tc_num = 0;
