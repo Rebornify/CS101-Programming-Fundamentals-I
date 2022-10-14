@@ -1,7 +1,26 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+bool compare(char *haystack, char *needle) {
+    while ((*haystack != '\0') && (*needle != '\0')) {
+        if (*haystack != *needle) {
+            return false;
+        }
+        haystack++;
+        needle++;
+    }
+    return (*needle == '\0');
+}
 
+char *my_strstr(char haystack[], char needle[]) {
+    while (*haystack != '\0') {
+        if ((*haystack == *needle) && compare(haystack, needle)) {
+            return haystack;
+        }
+        haystack++;
+    }
+    return NULL;
+}
 
 int main(void) {
     {

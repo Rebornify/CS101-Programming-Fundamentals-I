@@ -1,7 +1,27 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int my_strspn(char s1[], char s2[]) {
-    
+    int count = 0;
+
+    while (*s1 != '\0') {
+        char *temp = s2;
+        bool is_member = false;
+
+        while (*temp != '\0') {
+            if (*s1 == *temp) {
+                is_member = true;
+                count++;
+            }
+            temp++;
+        }
+        
+        if (is_member == false) {
+            return count;
+        }
+        s1++;
+    }
+    return count;
 }
 
 int main(void) {

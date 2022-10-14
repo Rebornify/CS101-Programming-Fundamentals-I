@@ -3,6 +3,10 @@
 
 
 
+bool is_sorted(int arr[], int n) {
+      
+}
+
 int main(void) {
  {
 

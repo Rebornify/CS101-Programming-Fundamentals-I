@@ -1,5 +1,37 @@
 #include <stdio.h>
 
+void encode(char *plaintext, char *ciphertext, int s) {
+    while (*plaintext != '\0') {
+        if (*plaintext >= 'A' && *plaintext <= 'Z') {
+            *ciphertext = (*plaintext + s - 'A') % 26 + 'A';
+        } else if (*plaintext >= 'a' && *plaintext <= 'z') {
+            *ciphertext = (*plaintext + s - 'a') % 26 + 'a';
+        } else {
+            *ciphertext = *plaintext;
+        }
+        ciphertext++;
+        plaintext++;
+    }
+    *ciphertext = '\0';
+}
+
+void decode(char *plaintext, char *ciphertext, int s) {
+    while (*ciphertext != '\0') {
+        if (*ciphertext >= 'A' && *ciphertext <= 'Z') {
+            *plaintext = *ciphertext - s - 'A' < 0 ?
+                'Z' + (*ciphertext - s - 'A' + 1) % 26 : (*ciphertext - s - 'A') % 26 + 'A';
+        } else if (*ciphertext >= 'a' && *ciphertext <= 'z') {
+            *plaintext = *ciphertext - s - 'a' < 0 ?
+                'z' + (*ciphertext - s - 'a' + 1) % 26 : (*ciphertext - s - 'a') % 26 + 'a';
+        } else {
+            *plaintext = *ciphertext;
+        }
+        plaintext++;
+        ciphertext++;
+    }
+    *plaintext = '\0';
+}
+
 int main(void) {
     {
         char *plaintext = "abc";

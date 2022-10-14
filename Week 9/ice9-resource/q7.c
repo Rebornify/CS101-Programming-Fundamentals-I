@@ -1,6 +1,14 @@
 #include <stdio.h>
 
-
+char *my_strchr(char array[], char look_for) {
+    while (*array != '\0') {
+        if (*array == look_for) {
+            return array;
+        }
+        array++;
+    }
+    return NULL;
+}
 
 int main(void) {
     {

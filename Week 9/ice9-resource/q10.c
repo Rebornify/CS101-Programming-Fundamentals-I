@@ -1,5 +1,21 @@
 #include <stdio.h>
 
+void run_length_encode(char *input, char *output) {
+    while (*input != '\0') {
+        *output++ = *input;
+
+        int r_len = 1;
+        while (*(input + 1) != '\0' && *input == *(input + 1)) {
+            r_len++;
+            input++;
+        }
+        
+        output += sprintf(output, "%d", r_len);
+
+        input++;
+    }
+    *output = '\0';
+}
 
 int main(void) {
     {
