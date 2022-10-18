@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 bool compare(char *haystack, char *needle) {
     while ((*haystack != '\0') && (*needle != '\0')) {
@@ -13,6 +14,10 @@ bool compare(char *haystack, char *needle) {
 }
 
 char *my_strstr(char haystack[], char needle[]) {
+    if (strcmp(needle, "") == 0) {
+        return haystack;
+    }
+
     while (*haystack != '\0') {
         if ((*haystack == *needle) && compare(haystack, needle)) {
             return haystack;
