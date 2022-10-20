@@ -1,7 +1,25 @@
 #include <stdio.h>
 #include <string.h>
 
-
+void py_slice(char orig[], char dest[], int start, int end, int step) {
+    int i = 0;
+    if (step >= 0) {
+        for (int j = start; j < end; j += step) {
+            if (orig[j] == '\0') {
+                return;
+            }
+            dest[i++] = orig[j];
+        }
+    } else {
+        for (int j = start; j > end; j += step) {
+            while (orig[j] == '\0') {
+                j--;
+            }
+            dest[i++] = orig[j];
+        }
+    }
+    dest[i] = '\0';
+}
 
 int main(void) {
     {

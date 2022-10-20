@@ -1,26 +1,26 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-struct Node {
+typedef struct Node{
     int data;
     struct Node* next;
-};
+} Node;
 
-struct Node* head;
+Node *head;
 
 void insert(int x) {
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    temp -> data = x;
-    temp -> next = head;
+    Node *temp = (Node *)malloc(sizeof(Node));
+    temp->data = x;
+    temp->next = head;
     head = temp;
 }
 
 void print() {
-    struct Node* temp = head;
+    Node *temp = head;
     printf("List is: ");
     while (temp != NULL) {
-        printf(" %d", temp -> data);
-        temp = temp -> next;
+        printf(" %d", temp->data);
+        temp = temp->next;
     }
     printf("\n");
 }

@@ -1,4 +1,15 @@
 #include <stdio.h>
+#include <string.h>
+
+void longest_common_prefix(char *s1, char *s2, char *s3) {
+    strcpy(s3, s1);
+    while (*s1 == *s2) {
+        s1++;
+        s2++;
+        s3++;
+    }
+    *s3 = '\0';
+}
 
 int main(void) {
     {

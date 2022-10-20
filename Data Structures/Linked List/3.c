@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node {
+typedef struct Node {
     int data;
     struct Node *next;
-};
+} Node;
 
-struct Node* head;
+Node *head;
 
 void insert(int data) {
-    struct Node* temp1 = (struct Node *)malloc(sizeof(struct Node));
+    Node *temp1 = (Node *)malloc(sizeof(Node));
     temp1->data = data;
 
     if (head == NULL) {
@@ -18,19 +18,19 @@ void insert(int data) {
         return;
     }
 
-    struct Node* temp2 = head;
-    while (temp2 -> next != NULL) {
-        temp2 = temp2 -> next;
+    Node *temp2 = head;
+    while (temp2->next != NULL) {
+        temp2 = temp2->next;
     }
 
-    temp1 -> next = temp2->next;
-    temp2 -> next = temp1;
+    temp1->next = temp2->next;
+    temp2->next = temp1;
 }
 
 void print() {
-    printf("List is: ");
+    printf("List is:");
 
-    struct Node* temp = head;
+    Node *temp = head;
     while (temp != NULL) {
         printf(" %d", temp->data);
         temp = temp->next;
@@ -39,20 +39,20 @@ void print() {
 }
 
 void delete(int n) {
-    struct Node* temp1 = head;
+    Node *temp1 = head;
 
     if (n == 1) {
-        head = temp1 -> next;
+        head = temp1->next;
         free(temp1);
         return;
     }
 
-    for (int i = 1; i < n - 1; i++) {
-        temp1 = temp1 -> next;
+    for (int i = 0; i < n - 2; i++) {
+        temp1 = temp1->next;
     }
 
-    struct Node* temp2 = temp1 -> next;
-    temp1 -> next = temp2 -> next;
+    Node *temp2 = temp1->next;
+    temp1->next = temp2->next;
 
     free(temp2);
 }

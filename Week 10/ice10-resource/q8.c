@@ -6,6 +6,36 @@ typedef struct node {
     struct node *next;
 } node;
 
+int size(node *head) {
+    int count = 0;
+    while (head != NULL) {
+        head = head->next;
+        count++;
+    }
+    return count;
+}
+
+int get_middle(node *head) {
+    if (head == NULL) {
+        return -1;
+    }
+    int len = size(head);
+    node *temp = head;
+    for (int i = 0; i < len / 2; i++) {
+        temp = temp->next;
+    }
+    return temp->value;
+}
+
+void free_all_nodes (node *ptr) {
+    while (ptr != NULL) {
+        node *current = ptr;
+        ptr = ptr->next;
+        free(current);
+
+    }
+}
+
 int main(void) {
     {
         // creates a linked list with 8 nodes
@@ -25,6 +55,7 @@ int main(void) {
         printf("Expected:3\n");
         printf("Actual  :%d\n", get_middle(prev));
         printf("\n");
+        free_all_nodes(prev);
     }
 
     {

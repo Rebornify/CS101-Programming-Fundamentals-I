@@ -1,7 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <time.h>
+
+void scramble_sentence(char *orig, char *scrambled) {
+    srand(time(NULL));
+
+    int a = 0;
+    bool contains_full_stop = false;
+    while (*(orig + a) != '\0') {
+        if (*(orig + a) == '.') {
+            contains_full_stop = true;
+        }
+        a++;
+    } 
+
+    int orig_len = strlen(orig) + 1;
+    char temp[orig_len];
+    strcpy(temp, orig);
+
+    char *token_ptr = strtok(temp, " .");
+    while (token_ptr != NULL) {
+        int tok_len = strlen(token_ptr);
+        for (int i = tok_len - 2; i > 0; i--) {
+            int j = (rand() % (tok_len - 2)) + 1;
+
+            char temp1 = *(token_ptr + i);
+            *(token_ptr + i) = *(token_ptr + j);
+            token_ptr[j] = temp1;
+        }
+
+        while (*token_ptr != '\0') {
+            *scrambled++ = *token_ptr++;
+        }
+        *scrambled++ = ' ';
+        token_ptr = strtok(NULL, " .");
+    }
+    if (contains_full_stop) {
+        *--scrambled = '.';
+        scrambled++;
+    }
+    *scrambled = '\0';
+}
 
 int main(void) {
     {
