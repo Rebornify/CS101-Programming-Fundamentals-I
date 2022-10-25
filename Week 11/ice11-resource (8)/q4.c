@@ -19,17 +19,12 @@ int intersection_of_2(int size1, int* arr1, int size2, int* arr2, int** result) 
             j++;
         }
     }
-    
-    if (k > 0) {
-        arr = realloc(arr, sizeof(int) * k);
-        *result = arr;
-    } else {
-        free(arr);
-    }
+    arr = realloc(arr, sizeof(int) * k);
+    *result = arr;
     return k;
 }
 
-void print_array(int n, int arr[n]) {
+void print_array(int n, int arr[]) {
     if (n == 0) {
         printf("><\n");
         return;
