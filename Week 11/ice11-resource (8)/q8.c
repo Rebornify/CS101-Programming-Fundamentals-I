@@ -1,4 +1,20 @@
 #include <stdio.h>
+void transpose_matrix(int rows, int cols, int src[][cols], int dest[][rows]) {
+    for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+            dest[i][j] = src[j][i];
+        }
+    }
+}
+
+void print_array(int cols, int rows, int dest[][rows]) {
+    for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+            printf("%d ", dest[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 int main(void) {
     {

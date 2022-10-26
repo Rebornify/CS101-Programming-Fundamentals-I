@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct node {
     int data;
-    struct Node *next;
-} Node;
+    struct node *next;
+} node;
 
-Node *head;
+node *head;
 
 void insert(int x, int n) {
-    Node *temp1 = (Node *)malloc(sizeof(Node));
+    node *temp1 = malloc(sizeof(node));
     temp1->data = x;
 
     if (n == 1) {
@@ -18,7 +18,7 @@ void insert(int x, int n) {
         return;
     }
 
-    Node *temp2 = head;
+    node *temp2 = head;
     for (int i = 1; i < n - 1; i++) {
         temp2 = temp2->next;
     }
@@ -28,7 +28,7 @@ void insert(int x, int n) {
 }
 
 void print() {
-    Node *temp = head;
+    node *temp = head;
     printf("List is:");
     while (temp != NULL) {
         printf(" %d", temp->data);

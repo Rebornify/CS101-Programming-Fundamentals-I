@@ -1,6 +1,61 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+bool valid_nums(int n, int values[][n]) {
+    int temp[9] = {0};
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            int current = values[i][j];
+            if (current < 1 || current > 9) {
+                return false;
+            } else {
+                temp[current - 1]++;
+            }
+        }
+    }
+
+    for (int i = 0; i < 9; i++) {
+        if (temp[i] != 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool valid_sums(int n, int values[][n]) {
+    for (int i = 0; i < n; i++) {
+        int sum_row = 0;
+        int sum_col = 0;
+
+        for (int j = 0; j < n; j++) {
+            sum_row += values[i][j];
+            sum_col += values[j][i];
+        }
+
+        if (sum_row != 15 || sum_col != 15) {
+            return false;
+        }
+
+        int sum_diag1 = values[0][0] + values[1][1] + values[2][2];
+        int sum_diag2 = values[2][0] + values[1][1] + values[0][2];
+
+        if (sum_diag1 != 15 || sum_diag2 != 15) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool is_magic_square(int n, int values[][n]) {
+    if (!valid_nums(n, values)) {
+        return false;
+    }
+
+    if (!valid_sums(n, values)) {
+        return false;
+    }
+    return true;
+}
 
 int main(void) {
     {

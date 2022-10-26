@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct node {
     int data;
-    struct Node *next;
-} Node;
+    struct node *next;
+} node;
 
-Node *insert(Node *head, int data) {
-    Node *temp = (Node *)malloc(sizeof(Node));
+node *insert(node *head, int data) {
+    node *temp = malloc(sizeof(node));
     temp->data = data;
     temp->next = NULL;
 
     if (head == NULL) {
         head = temp;
     } else {
-        Node *temp1 = head;
+        node *temp1 = head;
         while (temp1->next != NULL) {
             temp1 = temp1->next;
         }
@@ -23,8 +23,8 @@ Node *insert(Node *head, int data) {
     return head;
 }
 
-void print(Node *head) {
-    Node *temp = head;
+void print(node *head) {
+    node *temp = head;
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->next;
@@ -32,7 +32,7 @@ void print(Node *head) {
     printf("\n");
 }
 
-void reverse_print(Node *head) {
+void reverse_print(node *head) {
     if (head == NULL) {
         return;
     }
@@ -40,9 +40,9 @@ void reverse_print(Node *head) {
     printf("%d ", head->data);
 }
 
-void free_all_nodes (Node *ptr) {
+void free_all_nodes (node *ptr) {
     while (ptr != NULL) {
-        Node *current = ptr;
+        node *current = ptr;
         ptr = ptr->next;
         free(current);
 
@@ -50,7 +50,7 @@ void free_all_nodes (Node *ptr) {
 }
 
 int main() {
-    Node *head = NULL;
+    node *head = NULL;
     head = insert(head, 2);
     head = insert(head, 4);
     head = insert(head, 6);

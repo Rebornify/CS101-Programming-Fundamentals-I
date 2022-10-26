@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node{
+typedef struct node{
     int data;
-    struct Node* next;
-} Node;
+    struct node* next;
+} node;
 
-Node *head;
+node *head;
 
 void insert(int x) {
-    Node *temp = (Node *)malloc(sizeof(Node));
+    node *temp = malloc(sizeof(node));
     temp->data = x;
     temp->next = head;
     head = temp;
 }
 
 void print() {
-    Node *temp = head;
+    node *temp = head;
     printf("List is: ");
     while (temp != NULL) {
         printf(" %d", temp->data);

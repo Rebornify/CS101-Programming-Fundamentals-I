@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct node {
     int data;
-    struct Node *next;
-} Node;
+    struct node *next;
+} node;
 
-Node *head;
+node *head;
 
 void insert(int data) {
-    Node *temp1 = (Node *)malloc(sizeof(Node));
+    node *temp1 = malloc(sizeof(node));
     temp1->data = data;
+    temp1->next = NULL;
 
     if (head == NULL) {
         temp1->next = head;
@@ -18,19 +19,17 @@ void insert(int data) {
         return;
     }
 
-    Node *temp2 = head;
+    node *temp2 = head;
     while (temp2->next != NULL) {
         temp2 = temp2->next;
     }
-
-    temp1->next = temp2->next;
     temp2->next = temp1;
 }
 
 void print() {
     printf("List is:");
 
-    Node *temp = head;
+    node *temp = head;
     while (temp != NULL) {
         printf(" %d", temp->data);
         temp = temp->next;
@@ -39,7 +38,7 @@ void print() {
 }
 
 void delete(int n) {
-    Node *temp1 = head;
+    node *temp1 = head;
 
     if (n == 1) {
         head = temp1->next;
@@ -51,7 +50,7 @@ void delete(int n) {
         temp1 = temp1->next;
     }
 
-    Node *temp2 = temp1->next;
+    node *temp2 = temp1->next;
     temp1->next = temp2->next;
 
     free(temp2);

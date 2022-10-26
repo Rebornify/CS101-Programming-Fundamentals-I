@@ -3,6 +3,28 @@
 #include <stdlib.h>
 #include <string.h>
 
+void sieve(int limit, int** result, int* n) {
+    int count = 0;
+    bool prime[limit + 1];
+    for (int p = 2; p * p <= limit; p++) {
+        if (prime[p] == true) {
+            count++;
+            for (int i = p * p; i <= limit; i++) {
+                prime[i] = false;
+            }
+        }
+    }
+
+    int i = 0;
+    int* temp = malloc(sizeof(int) * count);
+    for (int p = 2; p <= limit; p++) {
+        if(prime[p]) {
+            temp[i++] = p;
+        }
+    }
+    *result = temp;
+    *n = count;
+}
 
 int main(void) {
     {

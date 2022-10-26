@@ -1,6 +1,37 @@
 #include <stdio.h>
 
+int partition(int arr[], int low, int high) {
+    int i = low;
+    for (int j = low; j <= high; j++) {
+        if (arr[i] < arr[high]) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+        }
+    }
 
+    int temp = arr[i];
+    arr[i] = arr[high];
+    arr[high] = temp;
+
+    return i;
+}
+
+void quicksort(int arr[], int low, int high) {
+    if (low < high) {
+        int partition_index = partition(arr, low, high);
+        quicksort(arr, low, partition_index - 1);
+        quicksort(arr, partition_index + 1, high);
+    }
+}
+
+void print_array(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
 int main(void) {
     {

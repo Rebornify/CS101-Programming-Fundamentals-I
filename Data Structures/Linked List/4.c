@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct node {
     int data;
-    struct Node *next;
-} Node;
+    struct node *next;
+} node;
 
-Node *head;
+node *head;
 
 void insert(int data) {
-    Node *temp = (Node *)malloc(sizeof(Node));
+    node *temp = malloc(sizeof(node));
     temp->data = data;
     temp->next = NULL;
 
     if (head == NULL) {
         head = temp;
     } else {
-        Node *temp1 = head;
+        node *temp1 = head;
         while (temp1->next != NULL) {
             temp1 = temp1->next;
         }
@@ -25,7 +25,7 @@ void insert(int data) {
 }
 
 void print() {
-    Node *temp = head;
+    node *temp = head;
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->next;
@@ -34,9 +34,9 @@ void print() {
 }
 
 void reverse() {
-    Node *prev = NULL;
-    Node *next;
-    Node *current = head;
+    node *prev = NULL;
+    node *next;
+    node *current = head;
     while (current != NULL) {
         next = current->next;
         current->next = prev;
