@@ -4,26 +4,31 @@
 #include <string.h>
 
 void sieve(int limit, int** result, int* n) {
-    int count = 0;
     bool prime[limit + 1];
+    memset(prime, true, sizeof(prime));
+
     for (int p = 2; p * p <= limit; p++) {
         if (prime[p] == true) {
-            count++;
-            for (int i = p * p; i <= limit; i++) {
+            for (int i = p * p; i <= limit; i += p) {
                 prime[i] = false;
             }
         }
     }
 
-    int i = 0;
-    int* temp = malloc(sizeof(int) * count);
     for (int p = 2; p <= limit; p++) {
-        if(prime[p]) {
-            temp[i++] = p;
+        if (prime[p] == true) {
+            (*n)++;
         }
     }
+
+    int* temp = malloc(sizeof(int) * (*n));
     *result = temp;
-    *n = count;
+
+    for (int p = 2; p <= limit; p++) {
+        if (prime[p] == true) { 
+            *temp++ = p;
+        }
+    }
 }
 
 int main(void) {
