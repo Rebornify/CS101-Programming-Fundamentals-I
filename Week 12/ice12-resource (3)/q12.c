@@ -21,7 +21,6 @@ int total(char *arr) {
             break;
         }
     }
-
     return sum;
 }
 
