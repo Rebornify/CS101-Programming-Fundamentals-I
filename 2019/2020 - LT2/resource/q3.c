@@ -14,7 +14,22 @@ typedef struct customer {
 } customer;
 
 void cut_queue(customer **first_customer, customer *queue_cutter, char *unlucky_queuer_name) {
+    customer* c = *first_customer;
+    if (strcmp(c->name, unlucky_queuer_name) == 0) {
+        queue_cutter->next_customer = c;
+        *first_customer = queue_cutter;
+    }
 
+    customer* prev = c;
+    c = c->next_customer;
+    while (c) {
+        if (strcmp(c->name, unlucky_queuer_name) == 0) {
+            prev->next_customer = queue_cutter;
+            queue_cutter->next_customer = c;
+        }
+        prev = c;
+        c = c->next_customer;
+    }
 }
 
 void print_queue(customer *first_customer) {

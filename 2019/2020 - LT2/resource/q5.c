@@ -3,7 +3,21 @@
 
 
 double get_max_score(int budget, int n, double prices[n], double insta_scores[n]) {
-    return 0;
+    double DP[n + 1][budget + 1];
+    
+    for (int i = 1; i <= n; i++) {
+        int w = prices[i - 1];
+        int v = insta_scores[i - 1];
+
+        for (int sz = 1; sz <= budget; sz++) {
+            DP[i][sz] = DP[i - 1][sz];
+
+            if (sz >= w && DP[i-1][sz - w] + v > DP[i][sz]) {
+                DP[i][sz] = DP[i-1][sz - w] + v;
+            }
+        }
+    }
+    return DP[n][budget];
 }
 
 

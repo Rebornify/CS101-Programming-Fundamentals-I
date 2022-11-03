@@ -19,7 +19,31 @@ typedef struct {
 } order_line_item;
 
 double process_order(int inv_count, inv_line_item *inventory, int order_count, order_line_item *order) {
-    return 0;
+    for (int i = 0; i < order_count; i++) {
+        bool is_found = false;
+        for (int j = 0; j < inv_count; j++) {
+            if (strcmp(order[i].name, inventory[j].name) == 0) {
+                is_found = true;
+                if (order[i].quantity > inventory[j].quantity) { 
+                    return false;
+                }
+            }
+        }
+        if (!is_found) {
+            return false;
+        }
+    }
+
+    double sum = 0;
+    for (int i = 0; i < order_count; i++) {
+        for (int j = 0; j < inv_count; j++) {
+            if (strcmp(order[i].name, inventory[j].name) == 0) {
+                inventory[j].quantity -= order[i].quantity;
+                sum += inventory[j].price * order[i].quantity;
+            }
+        }
+    }
+    return sum;
 }
 
 int main(void) {

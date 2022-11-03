@@ -9,7 +9,14 @@
 #include <string.h>
 
 void find_and_replace(char *target, const char *find, const char substitute) {
-    //
+    for (int i = 0; i < strlen(target); i++) {
+        for (int j = 0; j < strlen(find); j++) {
+            if (target[i] == find[j]) {
+                target[i] = substitute;
+                break;
+            }
+        }
+    }
 }
 
 int main(void) {
