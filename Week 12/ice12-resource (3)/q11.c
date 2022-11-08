@@ -28,6 +28,7 @@ bool is_valid(char email[]) {
     if (count != 1) {
         return false;
     }
+    
     return true;
 }
 
