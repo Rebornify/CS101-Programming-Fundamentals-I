@@ -86,7 +86,7 @@ void print_calendar(month, year) {
         printf("   ");
     }
 
-    for int i = 1; i <= 7 - first_day; i++) {
+    for (int i = 1; i <= 7 - first_day; i++) {
         printf(" %d ", i);
     }
 
@@ -127,5 +127,5 @@ void print_calendar(month, year) {
 }
 
 int main(void) {
-    print_calendar(5, 2028);
+    print_calendar(1, 2022);
 }

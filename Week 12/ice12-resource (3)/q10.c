@@ -8,16 +8,12 @@ int count_names_with_space(char *names[], int n) {
         char *temp = names[i];
 
         int len = strlen(temp);
-        bool name_with_space = false;
 
         for (int j = 0; j < len; j++) {
             if (temp[j] == ' ') {
-                name_with_space = true;
+                count++;
+                break;
             }
-        }
-
-        if (name_with_space) {
-            count++;
         }
     }
     return count;

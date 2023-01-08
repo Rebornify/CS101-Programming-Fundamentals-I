@@ -4,6 +4,7 @@
 
 char *get_repeated_lowercase_letters(char *str) {
     int count[26] = {0};
+
     while (*str) {
         if (*str >= 'a' && *str <= 'z') {
             count[*str - 'a']++; 
@@ -11,7 +12,7 @@ char *get_repeated_lowercase_letters(char *str) {
         str++;
     }
 
-    char *result = calloc(27, sizeof(char));
+    char *result = calloc(26, sizeof(char));
     char *temp = result;
 
     for (int i = 0; i < 26; i++) {
@@ -19,6 +20,7 @@ char *get_repeated_lowercase_letters(char *str) {
             *temp++ = 'a' + i;
         }
     }
+
     return result;
 }
 

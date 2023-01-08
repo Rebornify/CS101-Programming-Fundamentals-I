@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 void union_of_2(int size1, int* arr1, int size2, int* arr2, int** result) {
-    int* arr = malloc(sizeof(int) * (size1 + size2));
-    
+    int* arr = malloc((size1 + size2) * sizeof(int));
+
     int i = 0;
     int j = 0;
     int k = 0;
@@ -19,6 +19,7 @@ void union_of_2(int size1, int* arr1, int size2, int* arr2, int** result) {
     while (j < size2) {
         arr[k++] = arr2[j++];
     }
+    
     *result = arr;
 }
 

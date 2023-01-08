@@ -31,14 +31,16 @@ int get_crowd_size(int timings[], int n) {
 
     int highest = 0;
     int count = 0;
+
     int entries_pos = 0;
     int exits_pos = 0;
+
     while(entries_pos < n / 2 && exits_pos < n / 2) {
         if (entries[entries_pos] < exits[exits_pos]) {
-            count += 1;
+            count++;
             entries_pos++;
         } else {
-            count -= 1;
+            count--;
             exits_pos++;
         }
 
@@ -46,6 +48,7 @@ int get_crowd_size(int timings[], int n) {
             highest = count;
         }
     }
+
     return highest;
 }
 

@@ -17,8 +17,10 @@ int rearrange_digits(int num, int pivot) {
 
     int smaller = 0;
     int num_smaller = 0;
+
     int larger = 0;
     int num_larger = 0;
+
     int equal = 0;
     int num_equal = 0;
 
@@ -26,27 +28,28 @@ int rearrange_digits(int num, int pivot) {
         int digit = num % 10;
 
         if (digit > pivot) {
-            larger = digit * (int)pow(10, num_larger) + larger;
+            larger += digit * pow(10, num_larger);
             num_larger++;
         } else if (digit < pivot) {
-            smaller = digit * (int)pow(10, num_smaller) + smaller;
+            smaller += digit * pow(10, num_smaller);
             num_smaller++;
         } else {
-            equal = digit * (int)pow(10, num_equal) + equal;
+            equal += digit * pow(10, num_equal);
             num_equal++; 
         }
 
         num /= 10;
     }
 
-    int result = (int)pow(10, num_smaller) * equal 
-            + smaller
-            + (int)pow(10, num_smaller + num_equal) * larger;
+    int result = smaller
+            + pow(10, num_smaller) * equal 
+            + pow(10, num_smaller + num_equal) * larger;
 
 
     if (is_negative) {
         return -result;
     }
+
     return result;
 }
 

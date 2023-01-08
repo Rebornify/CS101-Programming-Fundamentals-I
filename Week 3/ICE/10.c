@@ -13,7 +13,7 @@ int main(void) {
 
     int nextTerm = t1 + t2;
     
-    for (int i = 2; i < n; i++) {
+    for (int i = 3; i <= n; i++) {
         printf("%d ", nextTerm);
         t1 = t2;
         t2 = nextTerm;

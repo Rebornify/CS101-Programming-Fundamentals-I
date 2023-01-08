@@ -12,6 +12,7 @@ char *get_longest_word(char *word_array[], int n) {
             longest_word_len = len;
         }
     }
+
     return longest_word;
 }
 

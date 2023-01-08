@@ -3,9 +3,23 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 
 int percent(char votes[], char candidate) {
-    return 0;
+    int total_votes = strlen(votes);
+    if (total_votes == 0) {
+        return 0;
+    }
+
+    int vote_count = 0;
+    for (int i = 0; i < total_votes; i++) {
+        if (votes[i] == candidate) {
+            vote_count++;
+            printf("%d", vote_count);
+        }
+    }
+    
+    return (vote_count * 100 / total_votes);
 }
 
 // DO NOT MODIFY THE CODE BELOW!

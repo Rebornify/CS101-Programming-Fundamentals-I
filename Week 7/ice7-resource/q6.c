@@ -4,8 +4,10 @@
 #include <string.h>
 
 bool is_palindrome(char str[]) {
-    int j = strlen(str) - 1;
-    for (int i = 0; i < strlen(str); i++) {
+    int len = strlen(str);
+    int j = len - 1;
+
+    for (int i = 0; i < len; i++) {
         if (!isalpha(str[i])) {
             continue;
         }
@@ -19,8 +21,10 @@ bool is_palindrome(char str[]) {
         if (tolower(str[i]) != tolower(str[j])) {
             return false;
         }
+        
         j--;
     }
+
     return true;
 }
 int main(void) {

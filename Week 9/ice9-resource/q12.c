@@ -11,7 +11,12 @@ bool is_sorted(int arr[], int n) {
       } else if (arr[i] > arr[i + 1]) {
          is_increasing = false;
       }
-   } 
+
+      if (!is_decreasing && !is_increasing) {
+         break;
+      }
+   }
+
    return (is_decreasing || is_increasing);
 }
 

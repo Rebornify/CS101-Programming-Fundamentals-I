@@ -22,8 +22,7 @@ int main(void) {
     printf("\n");
 
     for (int i = 0; i < n; i++) {
-        printf("%c", 'A' + i);
-        printf("%c", 'A' + i + 'a'-'A');
+        printf("%c%c", 'A' + i, 'A' + i + 'a'-'A');
     }
     printf("\n");
 
@@ -36,9 +35,9 @@ int main(void) {
     printf("(Sum: %d)\n", sum);
     printf("\n");
     
-    int product = 0;
+    int total_sum = 0;
     for (int i = 1; i <= n; i++) {
-        product += pow(10, i - 1) * i;
-        printf("%d\n", product);
+        total_sum += pow(10, i - 1) * i;
+        printf("%d\n", total_sum);
     }
 }

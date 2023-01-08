@@ -10,6 +10,7 @@ double get_gradient(point p1, point p2) {
     if (denominator == 0) {
         return 0;
     }
+
     return (double)(p1.y - p2.y) / denominator;
 }
 

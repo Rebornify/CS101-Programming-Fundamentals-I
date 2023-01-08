@@ -1,7 +1,18 @@
 #include <stdio.h>
 
 int range(int arr[], int n) {
-    return 0;
+    int lowest = arr[0] < arr[1] ? arr[0] : arr[1];
+    int highest = arr[0] > arr[1] ? arr[0] : arr[1];
+
+    for (int i = 2; i < n; i++) {
+        if (arr[i] < lowest) {
+            lowest = arr[i];
+        } else if (arr[i] > highest) {
+            highest = arr[i];
+        }
+    }
+
+    return highest - lowest;
 }
 
 int main(void) {

@@ -9,8 +9,8 @@ int main(void) {
     printf("Enter the starting digit:");
     scanf("%d", &start);
 
-    for (int i = 0; i <= count; i++) {
-        for (int j = start; j < start + i; j++) {
+    for (int i = 0; i < count; i++) {
+        for (int j = start; j <= start + i; j++) {
             printf("%d", j);
         }
         printf(" ");

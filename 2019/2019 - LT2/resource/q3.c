@@ -22,11 +22,13 @@ void cut_queue(customer **first_customer, customer *queue_cutter, char *unlucky_
 
     customer* prev = c;
     c = c->next_customer;
-    while (c) {
+
+    while (c != NULL) {
         if (strcmp(c->name, unlucky_queuer_name) == 0) {
             prev->next_customer = queue_cutter;
             queue_cutter->next_customer = c;
         }
+
         prev = c;
         c = c->next_customer;
     }

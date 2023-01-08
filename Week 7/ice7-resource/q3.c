@@ -28,6 +28,7 @@ double get_median(int values[], int n) {
     if (n % 2 == 0) {
         return (double)(values[n / 2 - 1] + values[n /2]) / 2;
     }
+    
     return values[n / 2];
 }
 

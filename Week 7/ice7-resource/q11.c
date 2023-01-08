@@ -12,14 +12,15 @@ void reverse_words(char str[]) {
 
     int word_start = len - 1;
     int word_end = len - 1;
-    
-    int i;
+
     while (word_start > 0) {
         if (str[word_start] == ' ') {
-            i = word_start + 1;
+            int i = word_start + 1;
+            
             while (i <= word_end) {
                 reversed[index++] = str[i++];
             }
+
             reversed[index++] = ' ';
 
             word_end = word_start - 1;

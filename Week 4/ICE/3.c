@@ -4,7 +4,9 @@
 int main(void) {
     int n1;
     int n2;
+
     bool is_valid = false;
+    
     do {
         printf("Enter n1>");
         scanf("%d", &n1);
@@ -13,21 +15,16 @@ int main(void) {
         scanf("%d", &n2);
 
         if ((n1 + n2) % 3 == 0) {
-            if (n1 < n2) {
-                for (int i = n1; i <= n2; i++) {
-                    printf("%d ", i);
-                }
-                printf("\n");
+            int smaller = n1 < n2 ? n1 : n2;
+            int greater = n1 > n2 ? n1 : n2;
+
+            for (int i = smaller; i <= greater; i++) {
+                printf("%d ", i);
             }
-            else {
-                for (int i = n2; i <= n1; i++) {
-                    printf("%d ", i);
-                }
-                printf("\n");
-            }
+            printf("\n");
+
             is_valid = !is_valid;
-        }
-        else {
+        } else {
             printf("Invalid!\n\n");
         }
     } while (!is_valid);

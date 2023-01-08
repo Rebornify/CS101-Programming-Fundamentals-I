@@ -25,10 +25,11 @@ double process_order(int inv_count, inv_line_item *inventory, int order_count, o
             if (strcmp(order[i].name, inventory[j].name) == 0) {
                 is_found = true;
                 if (order[i].quantity > inventory[j].quantity) { 
-                    return false;
+                    return 0;
                 }
             }
         }
+
         if (!is_found) {
             return false;
         }
@@ -43,6 +44,7 @@ double process_order(int inv_count, inv_line_item *inventory, int order_count, o
             }
         }
     }
+
     return sum;
 }
 

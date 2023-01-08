@@ -7,17 +7,17 @@
 void scramble_sentence(char *orig, char *scrambled) {
     srand(time(NULL));
 
-    int a = 0;
+    char *orig_ptr = orig;
     bool contains_full_stop = false;
-    while (*(orig + a) != '\0') {
-        if (*(orig + a) == '.') {
+    while (*orig_ptr != '\0') {
+        if (*orig_ptr == '.') {
             contains_full_stop = true;
         }
-        a++;
+        orig_ptr++;
     } 
 
-    int orig_len = strlen(orig) + 1;
-    char temp[orig_len];
+    int orig_len = strlen(orig);
+    char temp[orig_len + 1];
     strcpy(temp, orig);
 
     char *token_ptr = strtok(temp, " .");
@@ -34,6 +34,7 @@ void scramble_sentence(char *orig, char *scrambled) {
         while (*token_ptr != '\0') {
             *scrambled++ = *token_ptr++;
         }
+        
         *scrambled++ = ' ';
         token_ptr = strtok(NULL, " .");
     }

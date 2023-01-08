@@ -9,14 +9,14 @@ char *get_email(char *sentence) {
     bool is_email = false;
 
     while (!is_email) {
-        while (*temp && *temp != ' ') {
+        while (*temp != '\0' && *temp != ' ') {
             if (*temp == '@') { 
                 is_email = true;
             }
             temp++;
         }
 
-        if (*temp && !is_email) { 
+        if (*temp != '\0' && !is_email) { 
             sentence = temp + 1;
             temp = sentence;
         } else {
@@ -26,7 +26,7 @@ char *get_email(char *sentence) {
 
     int len = strlen(sentence) - strlen(temp);
     char *result = calloc(len + 1, sizeof(char));
-    
+
     strncpy(result, sentence, len);
 
     return result;

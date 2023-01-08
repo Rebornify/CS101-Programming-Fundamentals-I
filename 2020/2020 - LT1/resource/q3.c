@@ -12,13 +12,15 @@
 int extract(int num, int start, int end) {
     int num_digits = (num == 0) ? 1 : log10(num) + 1;
 
-    int new_end = (end < num_digits) ? end : num_digits;
+    int new_end = end < num_digits ? end : num_digits;
 
     int extracted = 0;
+
     for (int i = start; i < new_end; i++) {
         extracted *= 10;
-        extracted += num / (int) pow(10, num_digits - i - 1) % 10;
+        extracted += num / (int)pow(10, num_digits - i - 1) % 10;
     }
+
     return extracted;
 }
 

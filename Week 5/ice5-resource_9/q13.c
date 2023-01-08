@@ -12,7 +12,6 @@ void print_calendar(int num_days, int first_sun) {
     for(int i = 1; i < first_sun; i++) {
         printf(" %d ", i);
     }
-
     printf("\n");
 
     for (int i = first_sun; i < num_days; i += 7) {

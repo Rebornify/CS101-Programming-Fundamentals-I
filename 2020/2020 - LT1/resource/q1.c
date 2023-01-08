@@ -11,7 +11,7 @@ void sum_of_neighbours(int numbers[], int length) {
     if (length == 1) {
         return;
     }
-    
+
     int copy_numbers[length];
     for (int i = 0; i < length; i++) {
         copy_numbers[i] = numbers[i];
@@ -19,6 +19,7 @@ void sum_of_neighbours(int numbers[], int length) {
 
     numbers[0] = copy_numbers[0] + copy_numbers[1];
     numbers[length - 1] = copy_numbers[length - 2] + copy_numbers[length - 1];
+
     for (int i = 1; i < length - 1; i++) {
         numbers[i] = copy_numbers[i] + copy_numbers[i - 1] + copy_numbers[i + 1];
     }

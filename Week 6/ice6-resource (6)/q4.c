@@ -19,8 +19,7 @@ void print_expanded_form(int num) {
             num /= 10;
         } else {
             printf("%d", r * (int) pow(10, power));
-            power++;
-            num /= 10;
+            break;
         }
     }
 }
@@ -28,21 +27,21 @@ void print_expanded_form(int num) {
 int main(void) {
     printf("Test 1\n");
     printf("Expected:");
-    printf("10 + 2\n");
+    printf("2 + 10\n");
     printf("Actual  :");
     print_expanded_form(12);
     printf("\n");
 
     printf("Test 2\n");
     printf("Expected:");
-    printf("100 + 20 + 3\n");
+    printf("3 + 20 + 100\n");
     printf("Actual  :");
     print_expanded_form(123);
     printf("\n");
 
     printf("Test 3\n");
     printf("Expected:");
-    printf("100000 + 4\n");
+    printf("4 + 100000\n");
     printf("Actual  :");
     print_expanded_form(100004);
     printf("\n");

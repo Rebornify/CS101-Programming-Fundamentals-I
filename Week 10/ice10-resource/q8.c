@@ -9,8 +9,8 @@ typedef struct node {
 int size(node *head) {
     int count = 0;
     while (head != NULL) {
-        head = head->next;
         count++;
+        head = head->next;
     }
     return count;
 }
@@ -19,12 +19,14 @@ int get_middle(node *head) {
     if (head == NULL) {
         return -1;
     }
+
     int len = size(head);
-    node *temp = head;
+
     for (int i = 0; i < len / 2; i++) {
-        temp = temp->next;
+        head = head->next;
     }
-    return temp->value;
+
+    return head->value;
 }
 
 void free_all_nodes (node *ptr) {

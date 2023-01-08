@@ -5,11 +5,11 @@ int main(void) {
     printf("Enter n:");
     scanf("%d", &n);
 
-    int sum = 0;
+    long sum = 0;
     for (int i = 7; i <= n ; i += 7) {
         if (i % 7 == 0) {
             sum += i;
         }
     }
-    printf("%d\n", sum);
+    printf("%ld\n", sum);
 }

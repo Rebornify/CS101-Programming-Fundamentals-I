@@ -3,17 +3,13 @@
 char get_grade(int score) {
     if (score < 0 || score > 100) {
         return 'I';
-    }
-    if (score < 50) {
+    } else if (score < 50) {
         return 'F';
-    }
-    if (score < 70) {
+    } else if (score < 70) {
         return 'D';
-    }
-    if (score < 80) {
+    } else if (score < 80) {
         return 'C';
-    }
-    if (score < 90) {
+    } else if (score < 90) {
         return 'B';
     }
     return 'A';

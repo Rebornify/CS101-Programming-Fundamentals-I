@@ -4,7 +4,7 @@
 void trim(char sentence[]) {
     char* back = sentence + strlen(sentence) - 1;
 
-    while(*back == ' ') {
+    while (*back == ' ') {
         back--;
     }
 

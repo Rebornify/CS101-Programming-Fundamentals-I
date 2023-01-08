@@ -8,6 +8,7 @@ int range(int numbers[], int n) {
 
     int largest = numbers[0];
     int smallest = numbers[0];
+
     for (int i = 1; i < n; i++) {
         if (numbers[i] > largest) {
             largest = numbers[i];
@@ -19,6 +20,7 @@ int range(int numbers[], int n) {
     if (largest == smallest) {
         return 1;
     }
+
     return largest - smallest;
 }
 

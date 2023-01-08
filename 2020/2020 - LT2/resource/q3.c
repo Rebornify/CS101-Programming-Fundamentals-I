@@ -16,7 +16,51 @@ typedef struct citizen {
 
 
 void move_to_priority(citizen **queue, citizen **priority_queue) {
+    citizen *normal_head = NULL;
+    citizen *priority_head = *priority_queue;
+    citizen *normal = NULL;
+    citizen *priority = *priority_queue;
 
+    if (priority != NULL) {
+        while (priority->next != NULL) {
+            priority = priority->next;
+        }
+    }
+
+    citizen *ptr = *queue;
+
+    while (ptr != NULL) {
+        if (ptr->age < 65) {
+            if (normal == NULL) {
+                normal = ptr;
+                normal_head = normal;
+            } else {
+                normal->next = ptr;
+                normal = normal->next;
+            }
+        } else {
+            if (priority == NULL) {
+                priority = ptr;
+                priority_head = priority;
+            } else {
+                priority->next = ptr;
+                priority = priority->next;
+            }            
+        }
+
+        ptr = ptr->next;
+    }
+
+    if (normal != NULL) {
+        normal->next = NULL;
+    }
+    
+    if (priority != NULL){ 
+        priority->next = NULL; 
+    }
+
+    *queue = normal_head;
+    *priority_queue = priority_head;
 }
 
 // DO NOT MODIFY THE CODE BELOW!

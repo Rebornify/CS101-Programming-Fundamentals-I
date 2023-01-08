@@ -15,6 +15,7 @@ bool is_equals(person *p1, person *p2) {
     if (strcmp(p1->name, p2->name) != 0) {
         return false;
     }
+    
     return true;
 }
 

@@ -18,7 +18,7 @@ int main(void) {
         bool is_prime = true;
         for (int j = 2; j <= i / 2; j++) {
             if (i % j == 0) {
-                is_prime = !is_prime;
+                is_prime = false;;
                 break;
             }
         }
@@ -27,4 +27,6 @@ int main(void) {
             printf("%d ", i);
         }
     }
+    
+    printf("\n");
 }

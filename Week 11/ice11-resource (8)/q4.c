@@ -19,8 +19,10 @@ int intersection_of_2(int size1, int* arr1, int size2, int* arr2, int** result) 
             j++;
         }
     }
+
     arr = realloc(arr, sizeof(int) * k);
     *result = arr;
+    
     return k;
 }
 

@@ -4,11 +4,9 @@
 
 int get_sum_sublist(int numbers[], int k, int index) {
     int sum = 0;
-    
     for (int i = 0; i < k; i++) {
         sum += numbers[index + i];
     }
-
     return sum;
 }
 
@@ -18,7 +16,6 @@ int* get_max_sum_sublist(int numbers[], int n, int k) {
     }
 
     int max = get_sum_sublist(numbers, k, 0);
-
     int index = 0;
 
     for (int i = 1; i < n - k + 1; i++) {

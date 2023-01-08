@@ -14,16 +14,17 @@ bool compare(char *haystack, char *needle) {
 }
 
 char *my_strstr(char haystack[], char needle[]) {
-    if (strcmp(needle, "") == 0) {
+    if (*needle == '\0') {
         return haystack;
     }
 
     while (*haystack != '\0') {
-        if ((*haystack == *needle) && compare(haystack, needle)) {
+        if (compare(haystack, needle)) {
             return haystack;
         }
         haystack++;
     }
+    
     return NULL;
 }
 

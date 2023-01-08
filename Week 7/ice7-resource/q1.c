@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 double average(int values[], int n) {
-    double sum = 0;
+    int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += values[i];
     }
-    return sum / n;
+    return (double) sum / n;
 }
+
 int main(void) {
     {
         printf("Test 1\n");

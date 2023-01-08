@@ -17,9 +17,11 @@ int steal(int worth[], int nums) {
     if (nums == 0) {
         return 0;
     } 
+
     if (nums == 1) {
         return worth[0];
     }
+
     if (nums == 2) {
         return max(worth[0], worth[1]);
     }
@@ -27,9 +29,11 @@ int steal(int worth[], int nums) {
     int dp[nums];
     dp[0] = worth[0];
     dp[1] = max(worth[0], worth[1]);
+
     for (int i = 2 ; i < nums; i++) { 
         dp[i] = max(worth[i] + dp[i - 2], dp[i - 1]);
     }
+
     return dp[nums - 1];
 }
 

@@ -2,18 +2,19 @@
 #include <string.h>
 
 int get_len(char *s1, char *s2) {
-    int num1 = 0;
+    int len1 = 0;
     while (*s1 != '\0') {
-        num1++;
+        len1++;
         s1++;
     }
 
-    int num2 = 0;
+    int len2 = 0;
     while (*s2 != '\0') {
-        num2++;
+        len2++;
         s2++;
     }
-    return num1 < num2 ? num1 : num2;
+
+    return len1 < len2 ? len1 : len2;
 }
 
 void longest_common_suffix(char *s1, char *s2, char *s3) {
@@ -27,12 +28,12 @@ void longest_common_suffix(char *s1, char *s2, char *s3) {
         s2++;
     }
 
-    int count = 0;
-    while (count < len) {
+    int suffix_len = 0;
+    while (suffix_len < len) {
         if (*(s1 - 1) == *(s2 - 1)) {
             s1--;
             s2--;
-            count++;
+            suffix_len++;
         } else {
             break;
         }
@@ -41,6 +42,7 @@ void longest_common_suffix(char *s1, char *s2, char *s3) {
     while (*s1 != '\0') {
         *s3++ = *s1++;
     }
+    
     *s3 = '\0';
 }
 

@@ -7,22 +7,21 @@ int main(void) {
     scanf("%c", &letter);
 
     while (isalpha(letter)) {
+        letter = tolower(letter);
+
         switch (letter) {
-        case 'a':
-        case 'A':
-        case 'e':
-        case 'E':
-        case 'i':
-        case 'I':
-        case 'o':
-        case 'O':
-        case 'u':
-        case 'U':
-            printf("vowel\n");
-            break;
-        default:
-            printf("consonant\n");
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                printf("vowel\n");
+                break;
+            default:
+                printf("consonant\n");
         }
+
+        printf("\n");
         printf("Enter letter:");
         scanf(" %c", &letter);
     }

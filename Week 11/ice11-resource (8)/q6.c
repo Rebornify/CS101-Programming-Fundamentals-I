@@ -28,7 +28,9 @@ node* add(node *ptr, int value) {
     while (temp2->next != NULL) {
         temp2 = temp2->next;
     }
+
     temp2->next = temp1;
+
     return ptr;
 }
 

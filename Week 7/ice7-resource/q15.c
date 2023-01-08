@@ -4,11 +4,13 @@
 
 int mode(int numbers[], int n) {
     int mode = 0;
-    int max_count = 0;
-    for (int i = 0; i < n; i++) {
-        int count = 1;
+    int max_count = -1;
+
+    int count;
+    for (int i = 0; i < n; i += count) {
+        count = 1;
         for (int j = i + 1; j < n; j++) {
-            if (numbers[j] != numbers[i]) {
+            if (numbers[i] != numbers[j]) {
                 break;
             } else {
                 count++;
@@ -20,6 +22,7 @@ int mode(int numbers[], int n) {
             max_count = count;
         }
     }
+
     return mode;
 }
 

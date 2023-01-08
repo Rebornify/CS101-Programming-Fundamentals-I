@@ -3,9 +3,7 @@
 #include <string.h>
 
 char* repeat(char* value, int n) {
-    char* result = malloc(sizeof(char) * strlen(value) * n + 1);
-    *result = '\0';
-
+    char* result = calloc(strlen(value) * n + 1, sizeof(char));
     for (int i = 0; i < n; i++) {
         strcat(result, value);
     }

@@ -8,15 +8,15 @@ void swap(int *p1, int *p2) {
 
 void selection_sort(int arr[], int n) {
     for (int i = 0; i < n; i++) {
-        int min_i = i;
+        int min = i;
         for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_i]) {
-                min_i = j;
+            if (arr[j] < arr[min]) {
+                min = j;
             }
+        }
 
-            if (min_i != i) {
-                swap(&arr[min_i], &arr[i]);
-            }
+        if (min != i) {
+            swap(&arr[min], &arr[i]);
         }
     }
 }

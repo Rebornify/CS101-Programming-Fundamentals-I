@@ -2,18 +2,21 @@
 #include <string.h>
 
 int remove_consecutive_duplicates(char *str) {
-    char *temp = str;
-    while (*temp != '\0') {
-        while (*temp == *(temp + 1)) {
-            int i = 0;
-            while (*(temp + i) != '\0') {
-                *(temp + i) = *(temp + i + 1);
-                
-                i++;
+    char *temp1 = str;
+    
+    while (*temp1 != '\0') {
+        while (*temp1 == *(temp1 + 1)) {
+            char *temp2 = temp1;
+
+            while (*temp2 != '\0') {
+                *temp2 = *(temp2 + 1);
+
+                temp2++;
             }
         }
-        temp++;
+        temp1++;
     }
+    
     return strlen(str);
 }
 

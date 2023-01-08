@@ -48,8 +48,10 @@ double get_rental_charges(int start_day, int start_time, int end_day, int end_ti
         } else {
             hours = 24;
         }
+
         charges += get_day_charges(((current_day - 1) % 7) + 1, hours);
     }
+
     return charges;
 }
 

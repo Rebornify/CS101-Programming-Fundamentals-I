@@ -15,11 +15,6 @@ void display_ordinal_number(int num) {
     }
 
     switch (num % 10) {
-        case 11:
-        case 12:
-        case 13:
-            printf("%dth", num);
-            break;
         case 1:
             printf("%dst", num);
             break;

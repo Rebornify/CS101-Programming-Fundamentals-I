@@ -11,6 +11,7 @@ int get_index(int arr_len, int final_index) {
 
 bool is_weak(int arr[], int arr_len, int n, int index) {
     int sum = 0;
+
     for (int i = 1; i <= n; i++) {
         sum += arr[get_index(arr_len, index + i)];
     }
@@ -24,6 +25,7 @@ bool is_weak(int arr[], int arr_len, int n, int index) {
     if (arr[index] < mean) {
         return true;
     }
+
     return false;
 }
 

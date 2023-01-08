@@ -17,6 +17,7 @@ bool is_perfect_num(int num) {
     if (sum == num) {
         return true;
     }
+    
     return false;
 }
 

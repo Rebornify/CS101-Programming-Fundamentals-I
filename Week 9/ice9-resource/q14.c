@@ -13,6 +13,7 @@ void merge(char *content1, char *content2, char *combined) {
     while (*content2 != '\0') {
         *combined++ = *content2++;
     }
+    
     *combined = '\0';
 }
 

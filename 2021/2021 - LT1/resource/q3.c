@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long flip_set(int num) {
-    long result = 0;
+int flip_set(int num) {
+    int result = 0;
     while (num != 0) {
         result *= 10;
         result += num % 10;
@@ -15,6 +15,7 @@ long flip_set(int num) {
 
 long flip_number(int num) {
     int sign = 1;
+
     if (num < 0) {
         num = -num;
         sign = -1;
@@ -27,18 +28,19 @@ long flip_number(int num) {
     int num_digits = log10(num) + 1;
     bool odd_digits = (num_digits % 2 != 0);
 
-    long front = num / (long) pow(10, num_digits / 2);
-    long middle = 0;
+    int front = num / (int)pow(10, num_digits / 2);
+
+    int middle = 0;
 
     if (odd_digits) {
-        front = num / (long) pow(10, num_digits / 2 + 1);
-        middle = num / (long) pow(10, num_digits / 2) % 10;
+        front = num / (int)pow(10, num_digits / 2 + 1);
+        middle = num / (int)pow(10, num_digits / 2) % 10;
     }
 
-    long back = num % (long) pow(10, num_digits / 2);
+    int back = num % (int)pow(10, num_digits / 2);
 
-    long front_flipped = flip_set(front);
-    long back_flipped = flip_set(back);
+    int front_flipped = flip_set(front);
+    int back_flipped = flip_set(back);
 
     while (back * 10 < pow(10, num_digits / 2)) {
         back_flipped *= 10;
@@ -49,6 +51,7 @@ long flip_number(int num) {
         return sign * (front_flipped * pow(10, num_digits / 2 + 1) + middle
                 * pow(10, num_digits / 2) + back_flipped);
     }
+
     return sign * (front_flipped * pow(10, num_digits / 2) + back_flipped);
 }
 

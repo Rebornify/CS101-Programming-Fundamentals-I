@@ -3,8 +3,7 @@
 #include <string.h>
 
 int* arrange(int start, int step, int n) {
-    int* result = malloc(sizeof(int) * n);
-
+    int* result = malloc(n * sizeof(int));
     for (int i = 0; i < n; i++) {
         result[i] = start + i * step;
     }

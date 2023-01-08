@@ -7,26 +7,30 @@ bool verify(char *card) {
         return false;
     }
 
-    bool is_even = true;
+    bool multiply = true;
     int sum = 0;
 
     while (*card != '\0') {
-        if (is_even) {
+        if (multiply) {
             int temp = (*card - '0') * 2;
+
             if (temp > 9) {
                 temp -= 9;
             }
+
             sum += temp;
         } else {
             sum += *card - '0';
         }
-        is_even = !is_even;
+
+        multiply = !multiply;
         card++;
     }
 
     if (sum % 10 == 0) {
         return true;
     }
+
     return false;
 }
 

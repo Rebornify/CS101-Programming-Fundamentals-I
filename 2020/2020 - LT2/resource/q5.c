@@ -4,8 +4,64 @@
 #include <stdio.h>
 #include <string.h>
 
-void move(int n, int board[n][n], char direction[]) {
+void slide(int n, int arr[n][n]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            for (int k = j + 1; k < n; k++) {
+                if (arr[i][k] != 0) {
+                    if (arr[i][j] == 0) {
+                        arr[i][j] = arr[i][k];
+                        arr[i][k] = 0;
+                    } else if (arr[i][j] == arr[i][k]) {
+                        arr[i][j] *= 2;
+                        arr[i][k] = 0;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
 
+void rotate(int n, int board[n][n]) {
+    int result[n][n];
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            result[j][n - i - 1] = board[i][j];
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                board[i][j] = result[i][j];
+            }
+        }
+}
+
+void move(int n, int board[n][n], char direction[]) {
+    if (strcmp(direction, "left") == 0) {
+        slide(4, board);
+    } else if (strcmp(direction, "right") == 0) {
+        rotate(4, board);
+        rotate(4, board);
+        slide(4, board);
+        rotate(4, board);
+        rotate(4, board);
+    } else if (strcmp(direction, "down") == 0) {
+        rotate(4, board);
+        slide(4, board);
+        rotate(4, board);
+        rotate(4, board);
+        rotate(4, board);
+    } else {
+        rotate(4, board);
+        rotate(4, board);
+        rotate(4, board);
+        slide(4, board);
+        rotate(4, board);
+    }
 }
 
 // DO NOT MODIFY THE CODE BELOW!

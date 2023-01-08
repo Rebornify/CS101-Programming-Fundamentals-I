@@ -21,7 +21,7 @@ void sieve(int limit, int** result, int* n) {
         }
     }
 
-    int* temp = malloc(sizeof(int) * (*n));
+    int* temp = malloc((*n) * sizeof(int));
     *result = temp;
 
     for (int p = 2; p <= limit; p++) {

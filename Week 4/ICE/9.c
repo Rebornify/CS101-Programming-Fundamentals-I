@@ -5,15 +5,17 @@ int main(void) {
     printf("Enter num:");
     scanf("%d", &num);
 
-    int binary = 0;
-    int remainder;
-    int place = 1;
-    while (num > 0) {
-        remainder = num % 2;
-        num /= 2;
+    int binaryNum[32];
+    int i = 0;
 
-        binary += remainder * place;
-        place *= 10;
+    while (num > 0) {
+        binaryNum[i++] = num % 2;
+        num /= 2;
     }
-    printf("%d\n", binary);
+
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binaryNum[j]);
+    }
+
+    printf("\n");
 }

@@ -1,4 +1,62 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *get_immediate_hashtag(char *str) {
+    char *result = calloc(sizeof(char), 100);
+    char *ptr = result;
+
+    *ptr++ = *str++;
+
+    bool is_letter = false;
+
+    while (isalnum(*str) || *str == '_') {
+        if (isalpha(*str)) {
+            is_letter = true;
+        }
+        *ptr++ = *str++;
+    }
+
+    if (!is_letter) {
+        free(result);
+        result = NULL;
+    } else {
+        result = realloc(result, strlen(result) + 1);
+    }
+
+    return result;
+}
+
+char **get_hashtags(char *sentence, int *n) {
+    char **result = calloc(strlen(sentence), sizeof(char*));
+    int result_idx = 0;
+
+    while (*sentence != '\0') {
+        if (*sentence == '#') {
+            char *hashtag = get_immediate_hashtag(sentence);
+            if (hashtag != NULL) {
+                result[result_idx++] = hashtag;
+                sentence += strlen(hashtag);
+            } else {
+                sentence++;
+            }
+        } else {
+            sentence++;
+        }
+    }
+
+    if (result_idx == 0) {
+        free(result);
+        return NULL;
+    } else {
+        result = realloc(result, result_idx * sizeof(char *));
+    }
+
+    *n = result_idx;
+    return result;
+}
 
 int main(void) {
     int tc_num = 1;

@@ -2,7 +2,16 @@
 #include <string.h>
 
 int get_score(char responses[], char answers[]) {
-    return 0;
+    int n = strlen(responses);
+
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (responses[i] == answers[i]) {
+            count++;
+        }
+    }
+
+    return count * 100 / n;
 }
 
 int main(void) {

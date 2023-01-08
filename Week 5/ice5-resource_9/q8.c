@@ -3,38 +3,36 @@
 #include <math.h>
 
 int swap_digit_pairs(int n) {
-    if (n > 0 && n < 10) {
-        return n;
-    }
-
     bool is_positive = true;
     if (n < 0) {
         n *= -1;
         is_positive = false;
     }
 
-    int n_swapped = 0;
+    int result = 0;
     int place = 1;
+
     while (n > 10) {
         int pair = n % 100;
         int digit_1 = pair % 10;
         int digit_2 = pair / 10;
         
         pair = digit_1 * 10 + digit_2;
-        n_swapped += pair * place;
+        result += pair * place;
         
         place *= 100;
         n /= 100;
     }
 
     if (n > 0) {
-        n_swapped += n * place;
+        result += n * place;
     }
 
     if (!is_positive) {
-        n_swapped *= -1;
+        result *= -1;
     }
-    return n_swapped;
+    
+    return result;
 }
 
 int main(void) {

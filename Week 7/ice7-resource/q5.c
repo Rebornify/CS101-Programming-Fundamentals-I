@@ -37,8 +37,6 @@ double calculate_variance(int numbers[], int n) {
     return sum / (n - 1);
 }
 
-
-
 int main(void) {
     {
         printf("Test 1\n");

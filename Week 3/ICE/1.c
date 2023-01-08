@@ -2,23 +2,23 @@
 #include <math.h>
 
 int main(void) {
-    double deposit;
-    printf("Initial Deposit (P) :");
-    scanf("%lf", &deposit);
+    int P;
+    printf("Intitial Deposit(P):");
+    scanf("%d", &P);
 
-    double interest;
-    printf("Annual Interest Rate (in %%, r) :");
-    scanf("%lf", &interest);
+    double r;
+    printf("Annual Interest Rate (in %%, r):");
+    scanf("%lf", &r);
 
-    int frequency;
-    printf("Annual Compound Frequency (1 to 12, n) :");
-    scanf("%d", &frequency);
+    int n;
+    printf("Annual Compound Frequency (1 to 12, n):");
+    scanf("%d", &n);
 
-    int year;
-    printf("Num years (t) :");
-    scanf("%d", &year);
+    int t;
+    printf("Num years (t):");
+    scanf("%d", &t);
 
-    double amount = deposit * pow((1 + (interest / 100) / frequency), frequency * year);
+    double A = P * pow((1 + r / 100 / n), n * t);
 
-    printf("Amount after %d years is %.2lf\n", year, amount);
+    printf("Amount after 5 years is %.2lf\n", A);
 }

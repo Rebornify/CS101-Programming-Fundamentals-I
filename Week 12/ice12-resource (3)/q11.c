@@ -17,18 +17,17 @@ bool is_valid(char email[]) {
         return false;
     }
 
-    int count = 0;
-    while (*email) {
-        if (*email == '@') {
-            count++;
+    needle--;
+
+    int i = 0;
+    while (i < email_len - needle_len) {
+        if (*needle == '@') {
+            return false;
         }
-        email++;
+        needle--;
+        i++;
     }
 
-    if (count != 1) {
-        return false;
-    }
-    
     return true;
 }
 

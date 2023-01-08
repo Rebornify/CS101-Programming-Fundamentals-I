@@ -1,24 +1,24 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <ctype.h>
 
 int main(void) {
     char letter;
+    printf("Enter letter:");
+    scanf("%c", &letter);
 
-    bool is_valid = true;
-    do {
+    while (isalpha(letter)) {
+        letter = tolower(letter);
+
+        if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter =='u' ) {
+            printf("vowel\n");
+        } else {
+            printf("consonant\n");
+        }
+
+        printf("\n");
         printf("Enter letter:");
         scanf(" %c", &letter);
+    }
 
-        if (letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E' || letter == 'i'
-        || letter == 'I'|| letter == 'o' || letter == 'O' || letter == 'u' || letter == 'U') {
-            printf("vowel\n");
-        }
-        else if ((letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z')) {
-            printf("consonent\n");
-        }
-        else {
-            printf("Bye bye\n");
-            is_valid = false;
-        }
-    } while (is_valid);
+    printf("Bye bye\n");
 }

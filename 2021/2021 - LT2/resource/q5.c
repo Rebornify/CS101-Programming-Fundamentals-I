@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 
 typedef struct {
@@ -19,7 +20,48 @@ typedef struct {
     time end;
 } entry;
 
+int get_num_mins_since_midnight(time *t) {
+    int hr = t->hr;
+    int min = t->min;
 
+    if (!t->is_am && t->hr != 12) {
+        hr += 12;
+    } else if (t->is_am && hr == 12) {
+        hr = 0;
+    }
+
+    return hr * 60 + min;
+}
+
+bool is_overlapping(entry *e1, entry *e2) {
+    if (e1->entry_date.day != e2->entry_date.day || e1->entry_date.mth != e2->entry_date.mth 
+            || e1->entry_date.year != e2->entry_date.year) {
+        return false;
+    }
+
+    return get_num_mins_since_midnight(&(e1->start)) < get_num_mins_since_midnight(&(e2->end))
+            && get_num_mins_since_midnight(&(e2->start)) < get_num_mins_since_midnight(&(e1->end));
+}
+
+int get_contact_time(entry *entries1, int n1, entry *entries2, int n2) {
+    int count = 0;
+    for (int i = 0; i < n1; i++) {
+        for (int j = 0; j < n2; j++) {
+            if (is_overlapping(&entries1[i], &entries2[j])) {
+                int s1 = get_num_mins_since_midnight(&entries1[i].start);
+                int s2 = get_num_mins_since_midnight(&entries2[j].start);
+
+                int e1 = get_num_mins_since_midnight(&entries1[i].end);
+                int e2 = get_num_mins_since_midnight(&entries2[j].end);
+
+                int overlap_s = s1 > s2 ? s1 : s2;
+                int overlap_e = e1 < e2 ? e1 : e2;
+                count += overlap_e - overlap_s;
+            } 
+        }
+    }
+    return count;
+}
 
 int main(void) {
     int tc_num = 1;

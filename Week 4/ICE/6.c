@@ -5,19 +5,18 @@ int main(void) {
     printf("Enter integer:");
     scanf("%d", &n);
 
-    int copy_of_n = n;
+    int temp = n;
 
     int reversed_n = 0;
-    while (copy_of_n > 0) {
+    while (temp > 0) {
         reversed_n *= 10;
-        reversed_n += copy_of_n % 10;
-        copy_of_n /= 10;
+        reversed_n += temp % 10;
+        temp /= 10;
     }
     
     if (n == reversed_n) {
         printf("%d is a palindrome.\n", n);
-    }
-    else {
+    } else {
         printf("%d is not a palindrome.\n", n);
     }
 }

@@ -12,12 +12,14 @@ bool is_prime(int sum) {
 
 int collect_ball(int court_a, int court_b) {
     int court_c = 1;
+
     int sum = court_a + court_b + court_c;
 
     while (!is_prime(sum)) {
         court_c++;
         sum++;
     }
+
     return court_c;
 }
 

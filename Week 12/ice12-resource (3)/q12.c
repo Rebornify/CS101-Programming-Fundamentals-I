@@ -5,8 +5,9 @@ int total(char *arr) {
     char *temp = arr;
 
     int sum = 0;
-    while (*arr) {
-        while (*temp && *temp != ' ') {
+
+    while (*arr != '\0') {
+        while (*temp != '\0' && *temp != ' ') {
             temp++;
         }
 
@@ -14,13 +15,14 @@ int total(char *arr) {
         sscanf(arr, "%d", &value);
         sum += value;
 
-        if (*temp) {
+        if (*temp != '\0') {
             arr = temp + 1;
             temp = arr;
         } else {
             break;
         }
     }
+
     return sum;
 }
 

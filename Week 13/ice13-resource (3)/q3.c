@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int **matrix_add(int m, int n, int matrix_a[m][n], int matrix_b[m][n]) {
+    int **two_dim = malloc(m * sizeof(int *));
+
+    for (int i = 0; i < m; i++) {
+        two_dim[i] = calloc(n, sizeof(int));
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            two_dim[i][j] = matrix_a[i][j] + matrix_b[i][j];
+        }
+    }
+
+    return two_dim;
+}
+
 
 void print_array(int m, int n, int **array) {
     for (int i = 0; i < m; i++) {

@@ -2,7 +2,6 @@
 
 unsigned long add_or_multiply(int arr[], int n, char op) {
     int result = arr[0];
-
     for (int i = 1; i < n; i++) {
         if (op == '+') {
             result += arr[i];

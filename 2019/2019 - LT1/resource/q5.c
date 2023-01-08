@@ -9,7 +9,9 @@
 
 void print_snake(char start, char end, int len, int width) {
     int to_start = len % (width + 1);
+
     int needed = 0;
+
     if (to_start != 0) {
         needed = (width + 1) - to_start;
     }
@@ -17,27 +19,29 @@ void print_snake(char start, char end, int len, int width) {
     int num_times = ceil((double)len / (width + 1));
 
     int range = end - start + 1;
+
     if (start > end){
         range =  end - 'A' + 'Z' - start + 2;
     }
 
     char sequence[len + needed];
+
     for (int i = 0; i < needed; i++) {
         sequence[i] = ' ';
     }
 
     int count = 0;
+
     for (int i = len + needed - 1; i >= needed ; i--) {
         if (start >= 'A' && start <= 'Z') {
-            sequence[i] = 'A' + ((start - 'A' + count %(range)) % 26);
-        } 
-        count += 1;
+            sequence[i] = 'A' + ((start - 'A' + count % range) % 26);
+        }
+        count++;
     }
 
     bool is_forward = num_times % 2 == 0;
 
     for (int i = 0; i < len; i += width + 1) {
-
         if (sequence[i] != ' ') {
             if (is_forward) {
                 for (int j = 0; j < width - 1; j++) {

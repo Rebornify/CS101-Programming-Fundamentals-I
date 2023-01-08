@@ -29,6 +29,7 @@ char get_highest_occurring_character(char *sentence) {
             index = i;
         }
     }
+
     return 'a' + index;
 }
 

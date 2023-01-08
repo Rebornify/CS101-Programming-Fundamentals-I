@@ -11,9 +11,11 @@ int get_days_in_month(int month) {
     if (month == 4 || month == 6 || month == 9 || month == 11) {
         return 30;
     }
+
     if (month == 2) {
         return 28;
     }
+
     return 31;
 }
 
@@ -34,13 +36,14 @@ int num_days_since_epoch(int day, int month, int year) {
     for (int i = 0; i < month; i++) {
         num_days += get_days_in_month(i);
     }
+
     return num_days + day - 1;
 }
 
 int num_days_between(int d1, int m1, int y1, int d2, int m2, int y2) {
     int num_days1 = num_days_since_epoch(d1, m1, y1);
     int num_days2 = num_days_since_epoch(d2, m2, y2);
-    
+
     return num_days1 - num_days2;
 }
 

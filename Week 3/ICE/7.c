@@ -13,27 +13,27 @@ int main(void) {
     }
     printf("\n");
 
-    for (int i = n; i > 0; i--) {
-        for (int j = 0; j < i; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i; j++) {
             printf("*");
         }
         printf("\n");
     }
     printf("\n");
 
-    for (int i = n; i > 0; i--) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 1; j <= n - i; j++) {
             printf("%d", j);
         }
         printf("\n");
     }
     printf("\n");
 
-    for (int i = n; i > 0; i--) {
-        for (int j = 0; j < i - 1; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
             printf(" ");
         }
-        printf("%c\n", 'A' + (i - 1));
+        printf("%c\n", 'A' + (n - i - 1));
     }
     printf("\n");
     
@@ -41,8 +41,7 @@ int main(void) {
         for (int j = 0; j < n; j++) {
             if (j == i || j == (n - 1) - i) {
                 printf("*");
-            }
-            else {
+            } else {
                 printf(" ");
             }
         }

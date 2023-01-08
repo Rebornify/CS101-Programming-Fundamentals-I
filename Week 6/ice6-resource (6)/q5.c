@@ -6,16 +6,16 @@ int get_smallest_pair(int num) {
     }
 
     int smallest = num % 100;
-    num /= 100;
+    num /= 10;
 
     while (num > 10) {
         int current = num % 100;
-
         if (current < smallest) {
             smallest = current;
         }
         num /= 10;
     }
+
     return smallest;
 }
 

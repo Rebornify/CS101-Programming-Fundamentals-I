@@ -7,8 +7,9 @@ int calculate_ticket_price(int age) {
         return 56;
     } else if (age < 60) {
         return 76;
+    } else {
+        return 38;
     }
-    return 38;
 }
 
 int main(void) {

@@ -7,7 +7,7 @@ void print_largest_two(int arr[], int n) {
     }
 
     int num1 = arr[0] > arr[1] ? arr[0] : arr[1];
-    int num2 = num1 == arr[0] ? arr[1] : arr[0];
+    int num2 = arr[0] < arr[1] ? arr[0] : arr[1];
 
     for (int i = 2; i < n; i++) {
         if (arr[i] > num1) {
@@ -17,6 +17,7 @@ void print_largest_two(int arr[], int n) {
             num2 = arr[i];
         }
     }
+    
     printf("#1 = %d, #2 = %d", num1, num2);
 }
 

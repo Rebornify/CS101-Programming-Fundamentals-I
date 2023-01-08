@@ -3,7 +3,7 @@
 int partition(int arr[], int low, int high) {
     int i = low;
     for (int j = low; j <= high; j++) {
-        if (arr[i] < arr[high]) {
+        if (arr[j] < arr[high]) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
